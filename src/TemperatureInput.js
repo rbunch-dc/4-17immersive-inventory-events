@@ -10,24 +10,25 @@ class TemperatureInput extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {temperature: ''};
+    // this.state = {temperature: ''};
   }
 
-  handleChange(e) {
-    this.setState({temperature: e.target.value});
+  handleChange(event) {
+    this.props.onChange(event.target.value);
   }
 
   render() {
-    const temperature = this.state.temperature;
-    const scale = this.props.scale;
-    return (
-      <fieldset>
-        <legend>Enter temperature in {scaleNames[scale]}:</legend>
-        <input value={temperature}
-               onChange={this.handleChange} />
-        <BoilingVerdict scale={scale} temperature={parseFloat(temperature)} />
-      </fieldset>
-    );
+    var value = this.props.value;
+    var tUnits = this.props.tUnits;
+    return(
+      <div>
+        <label>Enter temperature in question in {tUnits}</label>
+        <input 
+          placeholder="Temp" 
+          value={value} 
+          onChange={this.handleChange} />     
+      </div>
+    )
   }
 }
 
