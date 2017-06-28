@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ParadiseOrDeath from './ParadiseOrDeath'
 
 class Toggle extends Component{
 	constructor(props) {
@@ -6,13 +7,24 @@ class Toggle extends Component{
 		this.state = {
 			toggleOn: true
 		}
-		console.log(this.state.toggleOn)
+		this.name = "Rob"
+		// console.log(this.state.toggleOn)
+		console.log("Class this: ")
+		console.log(this);
 		this.handleClick = this.handleClick.bind(this)
 	}
 
 	handleClick(){
+		console.log("handleClick this:")
+		console.log(this);
+		if(!this.state.toggleOn){
+			var pic = "http://d98uffoa56ghc.cloudfront.net/wp-content/uploads/2017/03/20102512/20-Tropical-Paradise-Vacation-Ideas-5.jpg"
+		}else{
+			var pic = "http://visityakutia.com/wp-content/gallery/valleyofdeathyakutiasiberiarussia/dolinasmertiolguidahyakutia_01.jpg"
+		}
 		this.setState({
-			toggleOn: !this.state.toggleOn
+			toggleOn: !this.state.toggleOn,
+			pic: pic
 		})
 	}
 
@@ -23,9 +35,12 @@ class Toggle extends Component{
 			var isToggleOn = "Off"
 		}
 		return(
-			<button onClick={this.handleClick}>
-				{isToggleOn}
-			</button>
+			<div>
+				<button onClick={this.handleClick}>
+					{isToggleOn}
+				</button>
+				<ParadiseOrDeath pic={this.state.pic} />
+			</div>
 		)
 	}
 }

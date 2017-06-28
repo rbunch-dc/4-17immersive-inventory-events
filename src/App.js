@@ -8,6 +8,8 @@ import SearchBar from './SearchBar'
 import ProductTable from './ProductTable'
 
 import Toggle from './Toggle.js'
+import MyForm from './MyForm'
+import Calculator from './Calculator'
 
 class App extends Component {
   constructor(props) {
@@ -18,9 +20,20 @@ class App extends Component {
   render() {
 
     return(
+      <Calculator />
+    )
+
+    return(
+      <MyForm />
+    )
+
+
+    //Basic Render Component
+    return(
       <Toggle />
     )
 
+    //Actual Inventory App (the file is named after)
     return (
       <div className="app container">
         <SearchBar />
