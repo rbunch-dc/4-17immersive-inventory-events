@@ -25,7 +25,7 @@ class TemperatureInput extends Component {
         <legend>Enter temperature in {scaleNames[scale]}:</legend>
         <input value={temperature}
                onChange={this.handleChange} />
-        <BoilingVerdict celsius={parseFloat(temperature)} />
+        <BoilingVerdict scale={scale} temperature={parseFloat(temperature)} />
       </fieldset>
     );
   }
